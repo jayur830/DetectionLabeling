@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="DetectionLabeling.jnlp">
+  <information>
+    <title>Detection Labeling</title>
+    <vendor>Unknown</vendor>
+    <description>DetectionLabeling</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="DetectionLabeling.jar" size="31619" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="DetectionLabeling.LocalizationLabeling"  name="DetectionLabeling" />
+  <update check="background"/>
+</jnlp>

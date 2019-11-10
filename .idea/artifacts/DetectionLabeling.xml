@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="DetectionLabeling">
+    <output-path>$PROJECT_DIR$/out/artifacts/DetectionLabeling</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="DetectionLabeling.LocalizationLabeling" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Detection Labeling" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="DetectionLabeling.jar">
+        <element id="module-output" name="DetectionLabeling" />
+      </element>
+    </root>
+  </artifact>
+</component>

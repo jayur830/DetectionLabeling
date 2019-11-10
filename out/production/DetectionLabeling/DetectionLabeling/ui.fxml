@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane fx:id="ui" prefHeight="526.0" prefWidth="1000.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DetectionLabeling.LocalizationLabeling">
+   <children>
+      <Pane fx:id="empty" layoutX="72.0" layoutY="43.0" prefHeight="420.0" prefWidth="420.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="65.0" layoutY="170.0" prefHeight="75.0" prefWidth="292.0" style="-fx-font-weight: bold;" text="Please drag and drop the project file(*.goo) or image files." wrapText="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Canvas fx:id="image" height="420.0" layoutX="72.0" layoutY="43.0" width="420.0" />
+      <Button fx:id="clearButton" layoutX="901.0" layoutY="43.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" text="Clear" />
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1000.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="newProjectMenu" mnemonicParsing="false" text="New project" />
+                  <MenuItem fx:id="loadProjectMenu" mnemonicParsing="false" text="Load project" />
+                  <MenuItem fx:id="loadImageMenu" mnemonicParsing="false" text="Load image" />
+                  <MenuItem fx:id="loadFolderMenu" mnemonicParsing="false" text="Load folder" />
+                  <MenuItem fx:id="saveProjectMenu" mnemonicParsing="false" text="Save Project" />
+                  <MenuItem fx:id="saveAsMenu" mnemonicParsing="false" text="Save As" />
+                  <MenuItem fx:id="exportMenu" mnemonicParsing="false" text="Export" />
+              <MenuItem fx:id="exitMenu" mnemonicParsing="false" text="Exit" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button fx:id="selectButton" layoutX="556.0" layoutY="43.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" text="Select" />
+      <Button fx:id="drawButton" layoutX="642.0" layoutY="43.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" text="Draw" />
+      <Label layoutX="128.0" layoutY="469.0" prefHeight="25.0" prefWidth="103.0" text="x: nan" fx:id="x" />
+      <Label fx:id="y" layoutX="243.0" layoutY="469.0" prefHeight="25.0" prefWidth="103.0" text="y: nan" />
+      <Label fx:id="grid" layoutX="15.0" layoutY="469.0" prefHeight="25.0" prefWidth="103.0" text="grid: (nan, nan)" />
+      <Label fx:id="normY" layoutX="556.0" layoutY="469.0" prefHeight="25.0" prefWidth="191.0" text="norm_y: nan" />
+      <Label fx:id="normX" layoutX="354.0" layoutY="469.0" prefHeight="25.0" prefWidth="191.0" text="norm_x: nan" />
+      <Button fx:id="addButton" layoutX="728.0" layoutY="43.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" text="Add" />
+      <Button fx:id="deleteButton" layoutX="815.0" layoutY="43.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" text="Delete" />
+      <Label fx:id="normWidthView" layoutX="456.0" layoutY="494.0" prefHeight="25.0" prefWidth="210.0" text="norm_width: 0" />
+      <Label fx:id="normHeightView" layoutX="678.0" layoutY="494.0" prefHeight="25.0" prefWidth="210.0" text="norm_height: 0" />
+      <Label fx:id="heightView" layoutX="235.0" layoutY="494.0" prefHeight="25.0" prefWidth="210.0" text="height: 0" />
+      <Label fx:id="widthView" layoutX="14.0" layoutY="494.0" prefHeight="25.0" prefWidth="210.0" text="width: 0" />
+      <Button fx:id="leftButton" layoutX="15.0" layoutY="191.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="49.0" text="&lt;" />
+      <Button fx:id="rightButton" layoutX="499.0" layoutY="191.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="49.0" text="&gt;" />
+      <TableView fx:id="boundingBoxConfigList" editable="true" fixedCellSize="0.0" layoutX="556.0" layoutY="88.0" prefHeight="375.0" prefWidth="431.0">
+        <columns>
+            <TableColumn fx:id="gridXColumn" prefWidth="75.0" text="gridX" />
+            <TableColumn fx:id="gridYColumn" prefWidth="75.0" text="gridY" />
+          <TableColumn onEditCommit="#xChange" prefWidth="75.0" text="x" fx:id="xColumn" />
+          <TableColumn fx:id="yColumn" onEditCommit="#yChange" prefWidth="75.0" text="y" />
+            <TableColumn fx:id="widthColumn" onEditCommit="#widthChange" prefWidth="75.0" text="width" />
+            <TableColumn fx:id="heightColumn" onEditCommit="#heightChange" prefWidth="75.0" text="height" />
+            <TableColumn fx:id="confidenceColumn" onEditCommit="#confidenceChange" prefWidth="75.0" text="confidence" />
+            <TableColumn fx:id="classColumn" onEditCommit="#classChange" prefWidth="75.0" text="class" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Canvas fx:id="drawArea" height="420.0" layoutX="72.0" layoutY="43.0" width="420.0" />
+   </children>
+</AnchorPane>
